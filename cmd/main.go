@@ -6,6 +6,7 @@ import (
 
 	"kafka-ops-learning/problems/connection"
 	"kafka-ops-learning/problems/consumerlag"
+	"kafka-ops-learning/problems/duplicateconsumption"
 	"kafka-ops-learning/problems/messageordering"
 	"kafka-ops-learning/problems/rebalance"
 	"kafka-ops-learning/problems/topicmissing"
@@ -39,6 +40,8 @@ func main() {
 		topicmissing.Run(action)
 	case "05-message-ordering":
 		messageordering.Run(action)
+	case "06-duplicate-consumption":
+		duplicateconsumption.Run(action)
 	default:
 		fmt.Printf("Unknown problem: %s\n", problem)
 		printUsage()
@@ -55,6 +58,7 @@ Problems and actions:
   03-connection-failure test
   04-topic-missing      list
   05-message-ordering   info
+  06-duplicate-consumption info | analyze
 
 Set env:
   KAFKA_BROKERS=host:9092[,host2:9092]   (default 127.0.0.1:9092)
